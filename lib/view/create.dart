@@ -128,6 +128,7 @@ class _CreateView extends State<CreateView> {
                         selectedType = "+ (income)";
                         descriptionController.text = "";
                         amountController.text = "";
+                        MyHomePage.calculateData();
                       });
                     }
                   },

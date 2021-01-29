@@ -19,6 +19,7 @@ class _DataTableView extends State<DataTableView> {
               onDismissed: (direction) {
                 setState(() {
                   MyHomePage.listData.removeAt(index);
+                  MyHomePage.calculateData();
                 });
               },
               direction: DismissDirection.startToEnd,

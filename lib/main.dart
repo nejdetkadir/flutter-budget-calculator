@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:budget_calculator/view/data-table.dart';
 import 'package:budget_calculator/view/create.dart';
+import 'package:budget_calculator/view/details.dart';
 import 'package:budget_calculator/model/record.dart';
 
 void main() {
@@ -20,6 +21,18 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatefulWidget {
   static List<Record> listData = [];
+  static List<double> data = [0, 0];
+
+  static calculateData() {
+    data = [0, 0];
+    MyHomePage.listData.forEach((element) {
+      if (element.type[0] == "+") {
+        MyHomePage.data[0] += element.amount;
+      } else {
+        MyHomePage.data[1] += element.amount;
+      }
+    });
+  }
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -34,7 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     super.initState();
-    pages = [CreateView(), DataTableView(), detailsView()];
+    pages = [CreateView(), DataTableView(), DetailsView()];
     colors = [Colors.green, Colors.yellow.shade900, Colors.brown];
     titles = ["Create", "Data Table", "Details"];
   }
@@ -69,15 +82,10 @@ class _MyHomePageState extends State<MyHomePage> {
         onTap: (value) {
           setState(() {
             currentIndex = value;
+            MyHomePage.calculateData();
           });
         },
       ),
-    );
-  }
-
-  detailsView() {
-    return Center(
-      child: Text("detailsView"),
     );
   }
 }
