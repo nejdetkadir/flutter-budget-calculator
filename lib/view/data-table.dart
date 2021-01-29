@@ -23,7 +23,7 @@ class _DataTableView extends State<DataTableView> {
                 });
               },
               direction: DismissDirection.startToEnd,
-              key: Key(MyHomePage.listData[index].id.toString()),
+              key: Key(MyHomePage.listData[index].id),
               child: Card(
                 elevation: 8,
                 child: Container(

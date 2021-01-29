@@ -1,5 +1,5 @@
 class Record {
-  int id;
+  String id;
   String description;
   String type;
   double amount;

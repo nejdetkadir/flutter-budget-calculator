@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:budget_calculator/main.dart';
 import 'package:budget_calculator/model/record.dart';
+import 'package:uuid/uuid.dart';
 
 class CreateView extends StatefulWidget {
   @override
@@ -8,6 +9,7 @@ class CreateView extends StatefulWidget {
 }
 
 class _CreateView extends State<CreateView> {
+  var uuid = Uuid();
   var formKey = GlobalKey<FormState>();
   String selectedType = "+ (income)";
   TextEditingController descriptionController;
@@ -123,8 +125,8 @@ class _CreateView extends State<CreateView> {
                     if (formKey.currentState.validate()) {
                       formKey.currentState.save();
                       setState(() {
-                        MyHomePage.listData.add(
-                            Record(1, description, selectedType[0], amount));
+                        MyHomePage.listData.add(Record(uuid.v1().toString(),
+                            description, selectedType[0], amount));
                         selectedType = "+ (income)";
                         descriptionController.text = "";
                         amountController.text = "";
