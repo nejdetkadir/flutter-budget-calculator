@@ -57,7 +57,7 @@ class _DetailsView extends State<DetailsView> {
                         color: Colors.red),
                   ),
                   Text(
-                    "+ ${MyHomePage.data[1]}",
+                    "- ${MyHomePage.data[1]}",
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 25,
