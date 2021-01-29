@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:budget_calculator/shared/bottom-nav-bar.dart';
+import 'package:budget_calculator/view/data-table.dart';
 
 void main() {
   runApp(MyApp());
@@ -17,6 +17,8 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
+  static List<Record> listData = [Record(11, "Elektrik Faturası", "-", 150.0)];
+
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
@@ -30,7 +32,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     super.initState();
-    pages = [createView(), dataTableView(), detailsView()];
+    pages = [createView(), DataTableView(), detailsView()];
     colors = [Colors.green, Colors.yellow.shade900, Colors.brown];
     titles = ["Create", "Data Table", "Details"];
   }
@@ -77,12 +79,6 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  dataTableView() {
-    return Center(
-      child: Text("dataTableView"),
-    );
-  }
-
   detailsView() {
     return Center(
       child: Text("detailsView"),
@@ -91,9 +87,10 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 
 class Record {
+  int id;
   String description;
   String type;
   double amount;
 
-  Record(this.description, this.type, this.amount);
+  Record(this.id, this.description, this.type, this.amount);
 }
