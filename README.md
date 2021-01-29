@@ -1,6 +1,7 @@
 # budget calculator
 Sample budget calculator with Flutter
 
+# Preview
 ![cover](doc/cover.gif)
 
 # LICENSE
