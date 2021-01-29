@@ -89,3 +89,11 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
+class Record {
+  String description;
+  String type;
+  double amount;
+
+  Record(this.description, this.type, this.amount);
+}
