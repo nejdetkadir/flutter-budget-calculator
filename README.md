@@ -1,6 +1,8 @@
 # budget calculator
 Sample budget calculator with Flutter
 
+![cover](doc/cover.gif)
+
 # LICENSE
 ```
 MIT License
